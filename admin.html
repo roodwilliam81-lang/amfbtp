@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Administration — AMF BTP Constru</title>
+<meta name="robots" content="noindex,nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&display=swap" />
+<style>
+:root{--p:#263a6b;--a:#f0a02c;--bg:#eef1f6;--card:#fff;--bd:#d9dee8;--tx:#1b2136;--mu:#5d6580}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Barlow",system-ui,sans-serif;background:var(--bg);color:var(--tx)}
+h1,h2,h3{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;margin:0}
+header{background:var(--p);color:#fff;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;position:sticky;top:0;z-index:20}
+header h1{font-size:1.4rem}
+.layout{display:flex;gap:20px;padding:20px;align-items:flex-start;flex-wrap:wrap}
+aside{flex:0 0 210px;background:var(--card);border:1px solid var(--bd);position:sticky;top:76px}
+aside button{display:block;width:100%;text-align:left;padding:12px 14px;background:none;border:0;border-bottom:1px solid var(--bd);font:inherit;font-weight:600;cursor:pointer}
+aside button.on{background:var(--p);color:#fff}
+main{flex:1 1 420px;min-width:300px}
+.card{background:var(--card);border:1px solid var(--bd);padding:18px;margin-bottom:16px}
+label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--mu);margin:12px 0 4px}
+input,textarea,select{width:100%;padding:9px 10px;border:1px solid var(--bd);font:inherit;background:#fff}
+textarea{min-height:80px;resize:vertical}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.row>div{flex:1 1 200px}
+button.b{background:var(--p);color:#fff;border:0;padding:10px 16px;font:inherit;font-weight:700;cursor:pointer;text-transform:uppercase;font-size:.8rem;letter-spacing:.04em}
+button.b.alt{background:var(--a);color:#1b2136}
+button.b.gh{background:#fff;color:var(--p);border:1px solid var(--p)}
+button.b.dg{background:#c0392b}
+button.b:hover{opacity:.9}
+.thumb{width:100%;height:130px;object-fit:cover;border:1px solid var(--bd);background:#fafbfc;margin-top:8px}
+.item{border:1px dashed var(--bd);padding:12px;margin-top:12px;background:#fbfcfe}
+.grid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.color{display:flex;align-items:center;gap:8px}
+.color input[type=color]{width:46px;height:38px;padding:2px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#1b2136;color:#fff;padding:12px 20px;z-index:50;display:none;font-weight:600}
+small.h{display:block;color:var(--mu);font-size:.78rem;margin-top:4px}
+#login{max-width:360px;margin:12vh auto;background:#fff;border:1px solid var(--bd);padding:26px}
+</style>
+</head>
+<body>
+<script id="site-data" type="application/json">{"theme": {"primary": "#263a6b", "accent": "#f0a02c", "steel": "#1e2a4a", "background": "#f7f8fa", "text": "#1b2136", "muted": "#5d6580", "card": "#ffffff", "border": "#e2e5ec", "whatsapp": "#25d366", "radius": 2, "fontHeading": "Barlow Condensed", "fontBody": "Barlow"}, "company": {"name": "AMF BTP CONSTRU", "baseline": "Construire avec expertise. Réaliser avec engagement.", "logo": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/logo-amf-btp.png", "email": "contact@amfbtpconstru.com", "address": "Djougou – Bénin, quartier Angaradebou", "phones": ["+229 01 97 30 96 33", "+229 01 95 04 17 26", "+229 01 40 28 73 59"], "whatsapp": "22997309633", "whatsappDisplay": "01 97 30 96 33", "rccm": "RB/DGO/21 A 950", "ifu": "0202112759779", "slogans": ["Construire aujourd'hui. Bâtir l'avenir.", "Seul le travail bien fait est notre premier objectif.", "Une entreprise d'économie des Bâtiments, pas des dépenses."], "mapsUrl": "https://maps.app.goo.gl/Wj44weU9w641ChqXA", "gerant": "Abdoul Aminou ABDOULAYI", "socials": {"facebook": "https://www.facebook.com/profile.php?id=100064169077806", "tiktok": "https://tiktok.com/@amf.btp.constru", "instagram": "https://www.instagram.com/amfbtpconstru?igsh=N3k2N2ZicjI3bDJh", "threads": "https://www.threads.com/@amfbtpconstru"}, "immobilierText": "Nous assurons la gestion de biens immobiliers pour le compte de particuliers et d'entreprises. Nos prestations comprennent la mise en locations, le suivi des locataires, la perception des loyers, l'entretien des bâtiments et l'accompagnement des propriétaires pour une gestion efficace de leur patrimoine immobilier.", "immobilierPoints": ["Achats et ventes des parcelles et maisons en cours de réalisation ou maison 🏡 clés en main. Titres clairs, accompagnement complet.", "Fournir des idées pour le choix de terrains et projets de réalisation."]}, "home": {"heroImage": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/a9932d102ee5d12d.jpg", "title": "Construire avec expertise. Réaliser avec engagement.", "intro": "Bienvenue chez AMF BTP Constru, votre partenaire de confiance dans le domaine du bâtiment et des travaux publics. De l'idée à la réalisation, nous mettons notre savoir-faire, notre sérieux et notre engagement au service de chaque projet.", "cta1": "Découvrir nos services", "cta2": "Demander un devis", "engagementTitle": "Notre engagement", "engagementLead": "Des projets bien pensés. Des travaux bien réalisés. Des clients satisfaits.", "engagementText": "Nous accompagnons les particuliers, les entreprises et les organisations dans la réalisation de leurs projets de construction, de rénovation, d'aménagement et de génie civil.", "engagementImage": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/8013a6e3967b8f62.jpg", "servicesTitle": "Nos domaines d'intervention", "heroSlogan": "Nous construisons vos projets avec qualité, professionnalisme et confiance."}, "about": {"eyebrow": "À propos de nous", "title": "Votre partenaire de confiance pour vos projets", "text": "AMF BTP Constru est une entreprise spécialisée dans le secteur du bâtiment et des travaux publics.", "p1": "Nous intervenons dans la réalisation et l'accompagnement de projets de construction, de rénovation, d'aménagement et de génie civil.", "p2": "Notre objectif est de proposer à chaque client des solutions adaptées à ses besoins, tout en accordant une attention particulière à la qualité, à la durabilité et au respect des exigences du projet.", "image": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/cbbfd75a4fd63144.jpg", "mission": "Accompagner nos clients dans la réalisation de leurs projets en leur proposant des solutions professionnelles, adaptées et durables.", "vision": "Devenir une entreprise de référence dans le secteur du BTP grâce à la qualité de nos services, à la fiabilité de nos réalisations et à la confiance de nos clients."}, "values": [{"title": "Qualité", "text": "Nous accordons une grande importance à la qualité du travail réalisé."}, {"title": "Professionnalisme", "text": "Nous abordons chaque projet avec sérieux, rigueur et responsabilité."}, {"title": "Engagement", "text": "Nous nous investissons pleinement dans chaque projet qui nous est confié."}, {"title": "Transparence", "text": "Nous privilégions une relation claire et de confiance avec nos clients."}, {"title": "Satisfaction du client", "text": "Votre satisfaction constitue l'une de nos principales priorités : nous transformons vos rêves en réalités."}], "servicesPage": {"eyebrow": "Nos services", "title": "Des solutions adaptées à chaque projet", "text": "Chez AMF BTP Constru, nous proposons des services adaptés aux besoins de nos clients, de la conception à la réalisation jusqu'à la finition."}, "services": [{"title": "🏗️ Construction de bâtiments", "icon": "building", "text": "Nous réalisons des projets de construction en tenant compte des besoins du client, des exigences techniques et des objectifs du projet."}, {"title": "🌉 Travaux de génie civil", "icon": "bridge", "text": "Nous intervenons dans différents domaines du génie civil et des infrastructures afin de contribuer à la réalisation de projets solides et durables."}, {"title": "📐 Études et conception", "icon": "ruler", "text": "Nous accompagnons nos clients dans la préparation, la réflexion et la conception de leurs projets : plans, maquettes 2D/3D, métré, calcul de structure."}, {"title": "👷 Suivi et contrôle des travaux", "icon": "check", "text": "Nous assurons le suivi de l'évolution des travaux afin de veiller au respect des plans, des exigences techniques et de la qualité d'exécution."}, {"title": "🏢 Gestion immobilière", "icon": "immo", "text": "Gestion de biens immobiliers pour particuliers et entreprises : mise en locations, suivi des locataires, perception des loyers, entretien des bâtiments et accompagnement des propriétaires. Achats et ventes de parcelles et de maisons en cours de réalisation ou maison 🏡 clés en main, titres clairs et accompagnement complet. Conseils pour le choix des terrains et des projets de réalisation."}, {"title": "🏚️ Rénovation et réhabilitation", "icon": "hammer", "text": "Nous intervenons dans la rénovation, la réhabilitation et la transformation de bâtiments existants afin de leur donner une nouvelle vie."}, {"title": "🛋️ Aménagement et décoration", "icon": "brush", "text": "Solutions d'aménagement et de décoration pour des espaces fonctionnels et harmonieux : crépissage, peinture, staff, espace vert, etc."}], "projectsPage": {"eyebrow": "Nos réalisations", "title": "Découvrez notre savoir-faire à travers nos réalisations", "text": "Chaque projet est une nouvelle occasion de mettre notre expertise, notre engagement et notre savoir-faire au service de nos clients."}, "projects": [{"nom": "Villa résidentielle R+1", "lieu": "Djougou, Bénin", "type": "Construction de bâtiment", "description": "Construction complète d'une villa R+1 : fondations, élévation, dalle, charpente, enduits pierre, menuiseries et pavage de la cour.", "image": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/8013a6e3967b8f62.jpg"}, {"nom": "Immeuble R+2 en briques décoratives", "lieu": "Djougou, Bénin", "type": "Construction et suivi de travaux", "description": "Réalisation d'un bâtiment R+2 en briques décoratives avec balcons, balustrades et terrasses, du gros œuvre aux finitions.", "image": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/31fb39601114df93.jpg"}, {"nom": "Dalle et escalier en béton armé", "lieu": "Région de Djougou", "type": "Travaux de génie civil", "description": "Coffrage, ferraillage et coulage d'une dalle pleine et d'un escalier en béton armé, avec contrôle de la qualité des matériaux et du dosage.", "image": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/cbbfd75a4fd63144.jpg"}, {"nom": "Aménagement et décoration intérieure", "lieu": "Bénin", "type": "Rénovation et aménagement", "description": "Faux plafond en staff, colonnes décoratives, carrelage grand format, peinture et éclairage pour un intérieur moderne et lumineux.", "image": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/6278ac79c110494f.jpg"}, {"nom": "Charpente et couverture bac aluminium", "lieu": "Djougou, Bénin", "type": "Construction de bâtiment", "description": "Pose de la charpente et de la couverture en tôle bac aluminium d'une habitation basse, avec traitement des rives et des arêtiers.", "image": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/64f94201d5562f4c.jpg"}, {"nom": "Habitation basse et clôture ornementale", "lieu": "Djougou, Bénin", "type": "Construction et aménagement extérieur", "description": "Construction d'une habitation basse et réalisation d'une clôture décorative moulée avec portail en fer forgé.", "image": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/86ad94716da9fb3e.jpg"}, {"nom": "Étude et modélisation 3D", "lieu": "Bénin", "type": "Études et conception", "description": "Plans, métré et perspective 3D d'une villa basse : le client visualise son futur bâtiment avant le démarrage du chantier.", "image": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/36b6779fbd47c268.jpg"}], "galleryPage": {"eyebrow": "Galerie", "title": "Notre savoir-faire en images", "text": "Découvrez l'univers d'AMF BTP Constru à travers nos photos et vidéos : nos chantiers, nos équipes et les différentes étapes de nos réalisations."}, "photos": [{"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/a9932d102ee5d12d.jpg", "title": "Gros œuvre d'une villa R+1", "cat": "Chantiers en cours", "alt": "Gros œuvre d'une villa R+1 — AMF BTP Constru", "desc": "Élévation des murs, poteaux et chaînages d'une villa R+1 : un chantier suivi étape par étape par nos équipes."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/cbbfd75a4fd63144.jpg", "title": "Coffrage de la dalle et de l'escalier", "cat": "Étapes de construction", "alt": "Coffrage de la dalle et de l'escalier — AMF BTP Constru", "desc": "Mise en place du coffrage bois, du ferraillage de la dalle et de la paillasse d'escalier avant le coulage du béton."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/64f94201d5562f4c.jpg", "title": "Charpente et couverture en bac aluminium", "cat": "Étapes de construction", "alt": "Charpente et couverture en bac aluminium — AMF BTP Constru", "desc": "Pose de la charpente et de la couverture en tôle bac alu sur une habitation basse, avant les enduits et finitions."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/19ebe9d1b509efcd.jpg", "title": "Villa R+1 en phase de finition", "cat": "Chantiers en cours", "alt": "Villa R+1 en phase de finition — AMF BTP Constru", "desc": "Travaux d'enduit, de peinture et de décoration extérieure d'une villa R+1 avec sa clôture et son portail."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/8013a6e3967b8f62.jpg", "title": "Villa R+1 avec finitions pierre", "cat": "Travaux achevés", "alt": "Villa R+1 avec finitions pierre — AMF BTP Constru", "desc": "Villa R+1 livrée : façade en enduit pierre, colonnes décoratives, balcon, portails en fer forgé et pavage de la cour."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/f2b630f76c0d587a.jpg", "title": "Duplex R+1 avec clôture et portail", "cat": "Travaux achevés", "alt": "Duplex R+1 avec clôture et portail — AMF BTP Constru", "desc": "Duplex R+1 achevé en briques apparentes, avec balcon, clôture périphérique et portail métallique."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/31fb39601114df93.jpg", "title": "Immeuble R+2 en briques décoratives", "cat": "Travaux achevés", "alt": "Immeuble R+2 en briques décoratives — AMF BTP Constru", "desc": "Bâtiment R+2 réalisé en briques décoratives, avec balustrades, terrasses et large balcon sur deux niveaux."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/86ad94716da9fb3e.jpg", "title": "Habitation basse et clôture ornementale", "cat": "Travaux achevés", "alt": "Habitation basse et clôture ornementale — AMF BTP Constru", "desc": "Habitation basse avec toiture quatre pentes et clôture décorative moulée : colonnes, panneaux et portail ouvragé."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/6278ac79c110494f.jpg", "title": "Aménagement intérieur : staff, colonnes et carrelage", "cat": "Rénovation & aménagement", "alt": "Aménagement intérieur : staff, colonnes et carrelage — AMF BTP Constru", "desc": "Finitions intérieures : faux plafond en staff, colonnes décoratives, escalier carrelé, peinture et éclairage."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/36b6779fbd47c268.jpg", "title": "Étude et modélisation 3D d'une villa basse", "cat": "Études & conception", "alt": "Étude et modélisation 3D d'une villa basse — AMF BTP Constru", "desc": "Perspective 3D réalisée par notre bureau d'études : le client visualise son projet avant le premier coup de pioche."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/1c5448e7f8c80c58.jpg", "title": "Villa R+1 en gros œuvre", "cat": "Chantiers en cours", "alt": "Villa R+1 en gros œuvre — AMF BTP CONSTRU", "desc": "Grande bâtisse en cours de gros œuvre avec colonnes et arcades au rez-de-chaussée."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/2b0d7cc0e0265f43.jpg", "title": "Maison basse : structure en briques achevée", "cat": "Étapes de construction", "alt": "Maison basse : structure en briques achevée — AMF BTP CONSTRU", "desc": "Maçonnerie achevée d'une maison basse avec porche à colonnes, prête pour les finitions."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/7b73ec60202f9ff6.jpg", "title": "Pose de couverture en bac aluminium bleu", "cat": "Étapes de construction", "alt": "Pose de couverture en bac aluminium bleu — AMF BTP CONSTRU", "desc": "Toiture en bac aluminium bleu posée sur une habitation, charpente terminée."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/740fcafccc9b64cc.jpg", "title": "Villa R+1 achevée avec clôture décorative", "cat": "Travaux achevés", "alt": "Villa R+1 achevée avec clôture décorative — AMF BTP CONSTRU", "desc": "Villa R+1 blanche livrée avec portail noir ouvragé et mur de clôture à médaillons dorés."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/ad690d40799961ad.jpg", "title": "Habitation avec clôture et portails métalliques", "cat": "Travaux achevés", "alt": "Habitation avec clôture et portails métalliques — AMF BTP CONSTRU", "desc": "Maison basse toiture argentée avec mur de clôture et portails en fer forgé."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/599efc3e5591e709.jpg", "title": "Duplex R+1 toiture bordeaux", "cat": "Travaux achevés", "alt": "Duplex R+1 toiture bordeaux — AMF BTP CONSTRU", "desc": "Duplex R+1 avec balcon, toiture en tuiles bordeaux et clôture en briques."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/be20e351974ae7b7.jpg", "title": "Villa à étage, façade carrelage damier", "cat": "Travaux achevés", "alt": "Villa à étage, façade carrelage damier — AMF BTP CONSTRU", "desc": "Villa à étage avec façade en carrelage décoratif damier orange et blanc, larges balcons."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/b99a22cb5af2194a.jpg", "title": "Toiture pyramidale et clôture ornementale", "cat": "Travaux achevés", "alt": "Toiture pyramidale et clôture ornementale — AMF BTP CONSTRU", "desc": "Habitation à toiture pyramidale verte, mur de clôture mouluré et portail doré."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/2111a7ac24c6aecf.jpg", "title": "Villa à étage, finitions ivoire", "cat": "Travaux achevés", "alt": "Villa à étage, finitions ivoire — AMF BTP CONSTRU", "desc": "Villa à étage aux moulures ivoire, portail noir ouvragé et façade soignée."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/df20eb01b193e292.jpg", "title": "Duplex R+1 en finition, façade brique", "cat": "Rénovation & aménagement", "alt": "Duplex R+1 en finition, façade brique — AMF BTP CONSTRU", "desc": "Duplex R+1 en briques apparentes avec balcon, fenêtres colorées : finitions en cours."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/3d5b59a35f83319d.jpg", "title": "Maison basse, soubassement en pierre naturelle", "cat": "Travaux achevés", "alt": "Maison basse, soubassement en pierre naturelle — AMF BTP CONSTRU", "desc": "Maison basse avec soubassement habillé de pierre naturelle et fenêtres aluminium blanc."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/8d63baa620aca399.jpg", "title": "Villa à étage, travaux de peinture", "cat": "Rénovation & aménagement", "alt": "Villa à étage, travaux de peinture — AMF BTP CONSTRU", "desc": "Villa à étage en cours de peinture, échafaudage en place à côté d'un portail décoratif doré."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/78640450d33af764.jpg", "title": "Villa carrelage damier, balcon balustrade", "cat": "Travaux achevés", "alt": "Villa carrelage damier, balcon balustrade — AMF BTP CONSTRU", "desc": "Villa à étage en carrelage décoratif orange avec balcon à balustrade blanche et portail doré."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/56d1d1d6c1263837.jpg", "title": "Aménagement intérieur : escalier en marbre", "cat": "Rénovation & aménagement", "alt": "Aménagement intérieur : escalier en marbre — AMF BTP CONSTRU", "desc": "Intérieur aménagé : escalier en marbre noir et blanc, colonnes dorées et faux plafond en staff."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/f48fd6e8194b3b6a.jpg", "title": "Coffrage bois de la dalle et de l'escalier", "cat": "Étapes de construction", "alt": "Coffrage bois de la dalle et de l'escalier — AMF BTP CONSTRU", "desc": "Équipe au travail sur le coffrage bois de la dalle et de la paillasse d'escalier avant coulage."}, {"src": "https://laixikqbmzxzxevksxim.supabase.co/storage/v1/object/public/media/site/2f32479f821d01f2.jpg", "title": "Immeuble R+2 en cours de construction", "cat": "Chantiers en cours", "alt": "Immeuble R+2 en cours de construction — AMF BTP CONSTRU", "desc": "Grand bâtiment R+2 en cours d'élévation, colonnes et fers d'attente apparents, portail rose."}], "videos": [], "contactPage": {"eyebrow": "Contact & devis", "title": "Parlons de votre projet", "text": "Vous avez un projet de construction, de rénovation ou d'aménagement ? Contactez-nous : nous étudierons votre demande et vous répondrons dans les meilleurs délais."}, "cta": {"title": "Vous avez un projet ?", "text": "Décrivez-nous votre projet à l'aide de notre formulaire de demande de devis. Nous étudierons votre demande et vous répondrons dans les meilleurs délais.", "btn1": "Demander un devis", "btn2": "Nous contacter sur WhatsApp"}, "admin": {"users": [{"name": "Administrateur principal", "email": "contact@amfbtpconstru.com", "password": "amfbtp2026"}], "recovery": "AMFBTP-RESET-2026"}, "pages": [], "sections": []}</script>
+
+<div id="login">
+  <h2>Espace administration</h2>
+  <p style="color:var(--mu);font-size:.9rem">Connectez-vous avec votre e-mail d'administrateur.</p>
+  <label>E-mail</label>
+  <input id="em" type="email" autocomplete="username" onkeydown="if(event.key==='Enter')doLogin()" />
+  <label>Mot de passe</label>
+  <input id="pw" type="password" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()" />
+  <p id="pwerr" style="color:#c0392b;display:none;font-size:.85rem">E-mail ou mot de passe incorrect.</p>
+  <button class="b" style="margin-top:14px;width:100%" onclick="doLogin()">Se connecter</button>
+  <p style="margin-top:14px;font-size:.85rem"><a href="#" style="color:var(--p)" onclick="document.getElementById('reset').style.display='block';return false">Mot de passe oublié ?</a></p>
+  <div id="reset" style="display:none;border-top:1px solid var(--bd);padding-top:12px">
+    <h3 style="font-size:1rem">Réinitialiser le mot de passe</h3>
+    <label>E-mail du compte</label><input id="rem" type="email" />
+    <label>Code de récupération</label><input id="rcode" placeholder="ex. AMFBTP-RESET-2026" />
+    <label>Nouveau mot de passe</label><input id="rnew" type="text" />
+    <p id="rerr" style="color:#c0392b;display:none;font-size:.85rem"></p>
+    <button class="b alt" style="margin-top:12px;width:100%" onclick="doReset()">Réinitialiser</button>
+    <small class="h">Le code de récupération se modifie dans l'onglet « Sécurité » une fois connecté.</small>
+  </div>
+</div>
+
+<div id="admin" style="display:none">
+<header>
+  <h1>Base d'administration — AMF BTP Constru</h1><span id="who" style="font-size:.8rem;opacity:.8"></span>
+  <span id="cloudBadge" style="font-size:.78rem;opacity:.85;padding:4px 10px;background:rgba(255,255,255,.1);border-radius:12px">En attente…</span>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <button class="b alt" onclick="save()">Enregistrer</button>
+    <button class="b gh" onclick="window.open('index.html','_blank')">Voir le site</button>
+    <button class="b gh" onclick="exportJson()">Sauvegarde .json</button>
+    <button class="b gh" onclick="document.getElementById('imp').click()">Restaurer</button>
+    <button class="b gh" onclick="exportSite()">Exporter index.html</button>
+    <input id="imp" type="file" accept="application/json" style="display:none" onchange="importJson(this)">
+  </div>
+</header>
+<div class="layout">
+  <aside id="tabs"></aside>
+  <main id="panel"></main>
+</div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+var DEFAULTS=JSON.parse(document.getElementById('site-data').textContent);
+var KEY='amfbtp_site_v1', PWKEY='amfbtp_pw';
+var IDKEY='amfbtp_identity_v', IDVER=5;
+var SB_URL='https://laixikqbmzxzxevksxim.supabase.co';
+var SB_KEY='sb_publishable_UuAL9wtfaH8MIDiOf4V6tg_oeyaxSql';
+var SB_HEADERS={apikey:SB_KEY,Authorization:'Bearer '+SB_KEY};
+var cloudStatus='En attente…';
+function cloudBadge(m){ cloudStatus=m; var b=document.getElementById('cloudBadge'); if(b) b.textContent=m; }
+function fetchCloud(){
+  return fetch(SB_URL+'/rest/v1/site_content?id=eq.main&select=data',{headers:SB_HEADERS})
+    .then(function(r){ if(!r.ok) throw new Error('http '+r.status); return r.json(); })
+    .then(function(rows){
+      if(rows && rows[0] && rows[0].data){
+        D = merge(JSON.parse(JSON.stringify(DEFAULTS)), rows[0].data);
+        localStorage.setItem(KEY, JSON.stringify(rows[0].data));
+        cloudBadge('☁️ Connecté — dernières données chargées');
+        return true;
+      }
+      cloudBadge('☁️ Connecté — aucune donnée en ligne pour l\'instant (cliquez ENREGISTRER)');
+      return false;
+    })
+    .catch(function(e){ cloudBadge('⚠️ Hors-ligne — modifications enregistrées seulement sur cet appareil'); return false; });
+}
+function pushCloud(){
+  return fetch(SB_URL+'/rest/v1/site_content?on_conflict=id',{
+    method:'POST',
+    headers:Object.assign({},SB_HEADERS,{'Content-Type':'application/json','Prefer':'resolution=merge-duplicates'}),
+    body:JSON.stringify({id:'main',data:D,updated_at:new Date().toISOString()})
+  }).then(function(r){ if(!r.ok) throw new Error('http '+r.status); cloudBadge('☁️ Synchronisé'); return true; })
+    .catch(function(e){ cloudBadge('⚠️ Échec de synchronisation — réessayez « ENREGISTRER »'); return false; });
+}
+function uploadToCloud(file,cb,onerr){
+  var ext=(file.name.split('.').pop()||'bin').toLowerCase().replace(/[^a-z0-9]/g,'')||'bin';
+  var path='u/'+Date.now()+'-'+Math.random().toString(36).slice(2)+'.'+ext;
+  fetch(SB_URL+'/storage/v1/object/media/'+path,{
+    method:'POST',
+    headers:Object.assign({},SB_HEADERS,{'Content-Type':file.type||'application/octet-stream'}),
+    body:file
+  }).then(function(r){ if(!r.ok) throw new Error('http '+r.status); return SB_URL+'/storage/v1/object/public/media/'+path; })
+    .then(cb)
+    .catch(function(e){ if(onerr) onerr(e); });
+}
+var D=load();
+if(!D.ui) D.ui={newSecPage:'/',newSecType:'texte'};
+if(!D.pages) D.pages=[]; if(!D.sections) D.sections=[];
+if(!D.theme.fontHeading) D.theme.fontHeading='Barlow Condensed';
+if(!D.theme.fontBody) D.theme.fontBody='Barlow';
+function load(){
+  try{
+    var s=localStorage.getItem(KEY);
+    if(!s){ localStorage.setItem(IDKEY,String(IDVER)); return JSON.parse(JSON.stringify(DEFAULTS)); }
+    var stored=JSON.parse(s);
+    var idv=parseInt(localStorage.getItem(IDKEY)||'0',10);
+    if(idv<IDVER){ try{ localStorage.removeItem(KEY); }catch(e){} localStorage.setItem(IDKEY,String(IDVER)); stored=null; }
+    return merge(JSON.parse(JSON.stringify(DEFAULTS)),stored);
+  }catch(e){ return JSON.parse(JSON.stringify(DEFAULTS)); }
+}
+function merge(a,b){ for(var k in b){ if(b[k]&&typeof b[k]==='object'&&!Array.isArray(b[k])&&a[k]) merge(a[k],b[k]); else a[k]=b[k]; } return a; }
+function toast(m){ var t=document.getElementById('toast'); t.textContent=m; t.style.display='block'; setTimeout(function(){t.style.display='none';},2200); }
+function save(){ localStorage.setItem(KEY,JSON.stringify(D)); toast('Modifications enregistrées OK'); cloudBadge('☁️ Synchronisation…'); pushCloud(); }
+var CURRENT=null;
+function users(){ if(!D.admin) D.admin={users:[],recovery:'AMFBTP-RESET-2026'}; if(!D.admin.users||!D.admin.users.length) D.admin.users=[{name:'Administrateur principal',email:'contact@amfbtpconstru.com',password:'amfbtp2026'}]; return D.admin.users; }
+function findUser(em){ em=(em||'').trim().toLowerCase(); for(var i=0;i<users().length;i++){ if((users()[i].email||'').trim().toLowerCase()===em) return users()[i]; } return null; }
+function doLogin(){
+  var u=findUser(document.getElementById('em').value);
+  var pw=document.getElementById('pw').value;
+  var legacy=localStorage.getItem(PWKEY);
+  if(u && (pw===u.password || (legacy && pw===legacy))){
+    CURRENT=u;
+    document.getElementById('login').style.display='none';
+    document.getElementById('admin').style.display='block';
+    document.getElementById('who').textContent=u.email;
+    build();
+    fetchCloud().then(function(){ build(); });
+  } else document.getElementById('pwerr').style.display='block';
+}
+function doReset(){
+  var e=document.getElementById('rerr'), u=findUser(document.getElementById('rem').value);
+  var code=document.getElementById('rcode').value.trim(), np=document.getElementById('rnew').value.trim();
+  e.style.display='block';
+  if(!u){ e.textContent="Aucun administrateur avec cet e-mail."; return; }
+  if(code!==(D.admin.recovery||'AMFBTP-RESET-2026')){ e.textContent="Code de récupération incorrect."; return; }
+  if(np.length<4){ e.textContent="Le nouveau mot de passe doit contenir au moins 4 caractères."; return; }
+  u.password=np; localStorage.removeItem(PWKEY); localStorage.setItem(KEY,JSON.stringify(D));
+  e.style.color='#1e7d3c'; e.textContent="Mot de passe réinitialisé. Vous pouvez vous connecter.";
+}
+/* --- helpers de liaison --- */
+function get(path){ return path.split('.').reduce(function(o,k){return o?o[k]:undefined;},D); }
+function set(path,v){ var ks=path.split('.'),o=D; for(var i=0;i<ks.length-1;i++) o=o[ks[i]]; o[ks[ks.length-1]]=v; }
+function fld(label,path,type,hint){
+  var v=get(path)==null?'':get(path);
+  var id='f'+Math.random().toString(36).slice(2);
+  var input = type==='area'
+    ? '<textarea id="'+id+'">'+String(v).replace(/</g,'&lt;')+'</textarea>'
+    : type==='color'
+      ? '<div class="color"><input type="color" id="'+id+'c" value="'+v+'"><input id="'+id+'" value="'+v+'"></div>'
+      : '<input id="'+id+'" value="'+String(v).replace(/"/g,'&quot;')+'">';
+  setTimeout(function(){
+    var el=document.getElementById(id);
+    el.oninput=function(){ set(path,el.value); var c=document.getElementById(id+'c'); if(c) c.value=el.value; };
+    var c=document.getElementById(id+'c'); if(c) c.oninput=function(){ el.value=c.value; set(path,c.value); };
+  },0);
+  return '<label>'+label+'</label>'+input+(hint?'<small class="h">'+hint+'</small>':'');
+}
+function imgFld(label,path,hint){
+  var id='i'+Math.random().toString(36).slice(2);
+  setTimeout(function(){
+    var inp=document.getElementById(id), url=document.getElementById(id+'u'), st=document.getElementById(id+'s');
+    inp.onchange=function(){
+      var file=inp.files[0]; if(!file) return;
+      st.textContent='Envoi vers la base d\'images…';
+      uploadToCloud(file,function(publicUrl){
+        set(path,publicUrl); document.getElementById(id+'p').src=publicUrl; url.value=publicUrl; st.textContent='Image envoyée — pensez à enregistrer'; toast('Image envoyée — pensez à enregistrer');
+      },function(){
+        // Hors-ligne ou échec : on garde une copie locale (moins optimal, alourdit le fichier)
+        toDataUrl(file,function(d){ set(path,d); document.getElementById(id+'p').src=d; url.value=d.slice(0,60)+'…'; st.textContent='Hors-ligne : image enregistrée seulement sur cet appareil'; toast('Hors-ligne — image chargée localement'); });
+      });
+    };
+    url.onchange=function(){ if(url.value.indexOf('http')===0){ set(path,url.value); document.getElementById(id+'p').src=url.value; st.textContent=''; } };
+  },0);
+  return '<label>'+label+'</label><img class="thumb" id="'+id+'p" src="'+(get(path)||'')+'" alt="">'
+   +'<div class="row" style="margin-top:8px"><div><input type="file" accept="image/*" id="'+id+'"></div><div><input id="'+id+'u" placeholder="…ou coller une URL d\'image"></div></div>'
+   +'<small class="h" id="'+id+'s"></small>'
+   +(hint?'<small class="h">'+hint+'</small>':'');
+}
+function vidFld(label,path,hint){
+  var id='v'+Math.random().toString(36).slice(2);
+  setTimeout(function(){
+    var inp=document.getElementById(id), url=document.getElementById(id+'u'), st=document.getElementById(id+'s');
+    inp.onchange=function(){
+      var file=inp.files[0]; if(!file) return;
+      if(file.size>200*1024*1024){ alert('Cette vidéo dépasse 200 Mo. Préférez un lien YouTube pour les vidéos très longues.'); return; }
+      st.textContent='Envoi de la vidéo…';
+      uploadToCloud(file,function(publicUrl){
+        set(path,publicUrl); url.value=publicUrl; st.textContent='Vidéo envoyée — pensez à enregistrer'; toast('Vidéo envoyée — pensez à enregistrer');
+      },function(){
+        if(file.size>15*1024*1024){ st.textContent='Échec de l\'envoi et vidéo trop lourde pour un stockage local. Réessayez ou utilisez un lien YouTube.'; return; }
+        var r=new FileReader();
+        r.onload=function(){ set(path,r.result); url.value=file.name+' (vidéo intégrée localement)'; st.textContent='Hors-ligne : vidéo enregistrée seulement sur cet appareil'; toast('Hors-ligne — vidéo chargée localement'); };
+        r.readAsDataURL(file);
+      });
+    };
+    url.onchange=function(){ if(url.value.indexOf('http')===0){ set(path,url.value); st.textContent=''; } };
+  },0);
+  return '<label>'+label+'</label>'
+   +'<div class="row" style="margin-top:8px"><div><input type="file" accept="video/mp4,video/*" id="'+id+'"></div><div><input id="'+id+'u" value="'+(String(get(path)||'').indexOf('data:')===0?'':String(get(path)||'')).replace(/"/g,'&quot;')+'" placeholder="…ou coller un lien YouTube / .mp4"></div></div>'
+   +'<small class="h" id="'+id+'s"></small>'
+   +(hint?'<small class="h">'+hint+'</small>':'');
+}
+function toDataUrl(file,cb){
+  var r=new FileReader();
+  r.onload=function(){
+    var img=new Image();
+    img.onload=function(){
+      var max=1400,w=img.width,h=img.height;
+      if(w>max||h>max){ var s=max/Math.max(w,h); w=Math.round(w*s); h=Math.round(h*s); }
+      var c=document.createElement('canvas'); c.width=w; c.height=h;
+      c.getContext('2d').drawImage(img,0,0,w,h);
+      cb(c.toDataURL('image/jpeg',0.78));
+    };
+    img.onerror=function(){ cb(r.result); };
+    img.src=r.result;
+  };
+  r.readAsDataURL(file);
+}
+function listCtl(arr,i,path){
+  return '<div style="display:flex;gap:6px;margin-top:10px">'
+   +'<button class="b gh" onclick="moveItem(\''+path+'\','+i+',-1)">↑</button>'
+   +'<button class="b gh" onclick="moveItem(\''+path+'\','+i+',1)">↓</button>'
+   +'<button class="b dg" onclick="delItem(\''+path+'\','+i+')">Supprimer</button></div>';
+}
+function moveItem(p,i,d){ var a=get(p); var j=i+d; if(j<0||j>=a.length) return; var t=a[i]; a[i]=a[j]; a[j]=t; render(); }
+function delItem(p,i){ if(!confirm('Supprimer cet élément ?')) return; get(p).splice(i,1); render(); }
+function addItem(p,obj){ get(p).push(JSON.parse(JSON.stringify(obj))); render(); }
+
+/* --- listes déroulantes --- */
+var FONTS=['Barlow','Barlow Condensed','Montserrat','Poppins','Roboto','Oswald','Lato','Open Sans','Raleway','Inter','Playfair Display','Merriweather','Bebas Neue','Anton','Nunito','Rubik','Work Sans','Teko'];
+function selFld(label,path,opts,hint){
+  var v=get(path)==null?'':String(get(path));
+  var id='s'+Math.random().toString(36).slice(2);
+  setTimeout(function(){ var el=document.getElementById(id); if(el) el.onchange=function(){ var v=el.value; if(v==='true') v=true; else if(v==='false') v=false; set(path,v); render(); }; },0);
+  return '<label>'+label+'</label><select id="'+id+'">'+opts.map(function(o){
+    var val=(typeof o==='string')?o:o[0], txt=(typeof o==='string')?o:o[1];
+    return '<option value="'+String(val).replace(/"/g,'&quot;')+'"'+(String(val)===v?' selected':'')+'>'+txt+'</option>';
+  }).join('')+'</select>'+(hint?'<small class="h">'+hint+'</small>':'');
+}
+function pageOptions(){
+  var o=[['/','Accueil'],['/a-propos','À propos de nous'],['/services','Nos services'],['/realisations','Nos réalisations'],['/galerie','Galerie'],['/contact','Contact & Devis']];
+  (D.pages||[]).forEach(function(pg){ var s='/'+String(pg.slug||'').replace(/^\/+/,''); o.push([s,(pg.title||s)+' (page perso.)']); });
+  return o;
+}
+function slugify(t){ return String(t||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''); }
+
+function tPages(){
+  var h='<p style="color:var(--mu)">Créez ici vos <b>nouvelles pages</b> (elles apparaissent automatiquement dans le menu) et ajoutez des <b>sections</b> sur n\'importe quelle page du site, existante ou nouvelle. Chaque section est entièrement personnalisable : textes, images, vidéos, couleurs, police, taille des caractères, alignement.</p>';
+  h+='<h3 style="margin-top:22px">Mes pages personnalisées</h3>';
+  if(!D.pages.length) h+='<p style="color:var(--mu);font-size:.9rem">Aucune page personnalisée pour le moment.</p>';
+  D.pages.forEach(function(pg,i){
+    h+='<div class="item"><div class="row"><div>'+fld('Titre de la page (menu)','pages.'+i+'.title')+'</div><div>'+fld('Adresse (slug)','pages.'+i+'.slug','','Ex. « nos-partenaires » → lien #/nos-partenaires')+'</div></div>'
+      +'<div class="row"><div>'+selFld('Afficher dans le menu','pages.'+i+'.nav',[[true,'Oui'],[false,'Non']])+'</div><div>'+selFld('Police du titre','pages.'+i+'.font',[''].concat(FONTS))+'</div></div>'
+      +fld('Sur-titre','pages.'+i+'.eyebrow')+fld('Grand titre','pages.'+i+'.heroTitle')+fld('Texte de la bannière','pages.'+i+'.heroText','area')
+      +imgFld('Image de bannière (facultatif)','pages.'+i+'.heroImage')
+      +listCtl(D.pages,i,'pages')+'</div>';
+  });
+  h+='<button class="b" style="margin-top:12px" onclick="addPage()">+ Ajouter une page</button>';
+
+  h+='<h3 style="margin-top:30px">Sections</h3>';
+  var byPage={};
+  D.sections.forEach(function(s,i){ var k=s.page||'/'; (byPage[k]=byPage[k]||[]).push(i); });
+  var opts=pageOptions();
+  opts.forEach(function(o){
+    var idxs=byPage[o[0]]||[]; if(!idxs.length) return;
+    h+='<h4 style="margin-top:20px;color:var(--p)">'+o[1]+'</h4>';
+    idxs.forEach(function(i){ h+=secEditor(i); });
+  });
+  h+='<div style="margin-top:16px">'+selFld('Ajouter une section à la page','ui.newSecPage',opts)+selFld('Type de section','ui.newSecType',[['texte','Texte (+ image)'],['cartes','Cartes / colonnes'],['galerie','Galerie d\'images'],['video','Vidéo'],['bandeau','Bandeau d\'appel à l\'action'],['liste','Liste à puces']])
+   +'<button class="b" style="margin-top:12px" onclick="addSection()">+ Ajouter la section</button></div>';
+  return h;
+}
+function secEditor(i){
+  var s=D.sections[i], b='sections.'+i, t=s.type||'texte';
+  var h='<div class="item"><div class="row"><div>'+selFld('Page','sections.'+i+'.page',pageOptions())+'</div><div>'+selFld('Type','sections.'+i+'.type',[['texte','Texte (+ image)'],['cartes','Cartes / colonnes'],['galerie','Galerie d\'images'],['video','Vidéo'],['bandeau','Bandeau d\'appel à l\'action'],['liste','Liste à puces']])+'</div></div>'
+   +fld('Titre de la section',b+'.title');
+  if(t==='texte'||t==='cartes'||t==='bandeau') h+=fld('Texte',b+'.text','area');
+  if(t==='texte'){ h+=imgFld('Image (facultatif)',b+'.image')+selFld('Position de l\'image',b+'.imagePosition',[['right','À droite'],['left','À gauche']]); }
+  if(t==='video') h+=vidFld('Vidéo de la section',b+'.videoUrl','Téléversez un MP4 depuis votre appareil ou collez un lien YouTube / .mp4.');
+  if(t==='cartes'||t==='galerie'||t==='liste'){
+    h+='<h4 style="margin-top:14px">Éléments</h4>';
+    (s.items||[]).forEach(function(it,j){
+      h+='<div class="item">'+fld('Titre',b+'.items.'+j+'.title')
+        +(t!=='galerie'?fld('Texte',b+'.items.'+j+'.text','area'):'')
+        +(t!=='liste'?imgFld('Image',b+'.items.'+j+'.image'):'')
+        +listCtl(s.items,j,b+'.items')+'</div>';
+    });
+    h+='<button class="b gh" style="margin-top:10px" onclick="addItem(\''+b+'.items\',{title:\'Nouvel élément\',text:\'\',image:\'\'})">+ Ajouter un élément</button>';
+  }
+  h+='<div class="row"><div>'+fld('Texte du bouton (facultatif)',b+'.btnLabel')+'</div><div>'+fld('Lien du bouton',b+'.btnLink','','Ex. #/contact ou https://…')+'</div></div>';
+  h+='<h4 style="margin-top:16px">Apparence de la section</h4>'
+   +'<div class="row"><div>'+fld('Couleur de fond',b+'.bg','color')+'</div><div>'+fld('Couleur du texte',b+'.color','color')+'</div></div>'
+   +'<div class="row"><div>'+fld('Couleur du titre',b+'.titleColor','color')+'</div><div>'+selFld('Alignement',b+'.align',[['left','Gauche'],['center','Centré'],['right','Droite']])+'</div></div>'
+   +'<div class="row"><div>'+selFld('Police du texte',b+'.font',[''].concat(FONTS))+'</div><div>'+selFld('Police du titre',b+'.titleFont',[''].concat(FONTS))+'</div></div>'
+   +'<div class="row"><div>'+fld('Taille du texte (px)',b+'.textSize')+'</div><div>'+fld('Taille du titre (px)',b+'.titleSize')+'</div></div>'
+   +'<div class="row"><div>'+fld('Espacement haut/bas (px)',b+'.padding')+'</div><div>'+selFld('Visible sur le site',b+'.visible',[[true,'Oui'],[false,'Non (brouillon)']])+'</div></div>'
+   +imgFld('Image de fond (facultatif)',b+'.bgImage')
+   +listCtl(D.sections,i,'sections')+'</div>';
+  return h;
+}
+function addPage(){
+  var n=D.pages.length+1;
+  D.pages.push({title:'Nouvelle page '+n,slug:'nouvelle-page-'+n,nav:true,eyebrow:'',heroTitle:'Nouvelle page',heroText:'',heroImage:'',font:''});
+  render(); toast('Page ajoutée — pensez à Enregistrer');
+}
+function addSection(){
+  if(!D.ui) D.ui={};
+  var pg=D.ui.newSecPage||'/', ty=D.ui.newSecType||'texte';
+  var s={page:pg,type:ty,title:'Nouvelle section',text:'',visible:true,align:'left',bg:'',color:'',titleColor:'',font:'',titleFont:'',textSize:'',titleSize:'',padding:'',image:'',imagePosition:'right',videoUrl:'',btnLabel:'',btnLink:'',bgImage:''};
+  if(ty==='cartes'||ty==='galerie'||ty==='liste') s.items=[{title:'Élément 1',text:'',image:''}];
+  D.sections.push(s); render(); toast('Section ajoutée — pensez à Enregistrer');
+}
+
+/* --- onglets --- */
+
+/* --- Bibliothèque de médias (images, vidéos, dossiers) stockée dans la base --- */
+var MEDIA={prefix:'',rows:null,msg:''};
+function mediaUrl(name){ return SB_URL+'/storage/v1/object/public/media/'+MEDIA.prefix+encodeURIComponent(name); }
+function mediaLoad(){
+  MEDIA.rows=null;
+  fetch(SB_URL+'/storage/v1/object/list/media',{method:'POST',headers:Object.assign({},SB_HEADERS,{'Content-Type':'application/json'}),
+    body:JSON.stringify({prefix:MEDIA.prefix,limit:300,offset:0,sortBy:{column:'name',order:'asc'}})})
+   .then(function(r){ if(!r.ok) throw new Error('http '+r.status); return r.json(); })
+   .then(function(rows){ MEDIA.rows=rows||[]; if(cur==='medias') render(); })
+   .catch(function(){ MEDIA.rows=[]; MEDIA.msg='Impossible de contacter la base de médias.'; if(cur==='medias') render(); });
+}
+function mediaOpen(name){ MEDIA.prefix=MEDIA.prefix+name+'/'; MEDIA.msg=''; mediaLoad(); render(); }
+function mediaUp(){ var p=MEDIA.prefix.replace(/[^/]+\/$/,''); MEDIA.prefix=p; MEDIA.msg=''; mediaLoad(); render(); }
+function mediaNewFolder(){
+  var n=prompt('Nom du nouveau dossier (ex. chantiers-2026)'); if(!n) return;
+  n=n.trim().toLowerCase().replace(/[^a-z0-9-_]/g,'-'); if(!n) return;
+  MEDIA.prefix=MEDIA.prefix+n+'/'; MEDIA.msg='Dossier « '+n+' » ouvert : téléversez un fichier pour le créer définitivement.'; mediaLoad(); render();
+}
+function mediaUpload(inp){
+  var files=[].slice.call(inp.files||[]); if(!files.length) return;
+  var done=0, fail=0;
+  MEDIA.msg='Envoi de '+files.length+' fichier(s)…'; render();
+  function next(){
+    if(!files.length){ MEDIA.msg='Envoi terminé : '+done+' fichier(s) ajouté(s)'+(fail?' — '+fail+' échec(s)':''); mediaLoad(); render(); return; }
+    var f=files.shift();
+    var safe=f.name.toLowerCase().replace(/[^a-z0-9._-]/g,'-');
+    var path=MEDIA.prefix+Date.now()+'-'+safe;
+    fetch(SB_URL+'/storage/v1/object/media/'+path,{method:'POST',headers:Object.assign({},SB_HEADERS,{'Content-Type':f.type||'application/octet-stream','x-upsert':'true'}),body:f})
+      .then(function(r){ if(!r.ok) throw new Error('http '+r.status); done++; })
+      .catch(function(){ fail++; })
+      .then(next);
+  }
+  next();
+}
+function mediaDelete(name){
+  if(!confirm('Supprimer définitivement « '+name+' » de la base ?')) return;
+  fetch(SB_URL+'/storage/v1/object/media/'+MEDIA.prefix+name,{method:'DELETE',headers:SB_HEADERS})
+   .then(function(){ toast('Fichier supprimé'); mediaLoad(); })
+   .catch(function(){ toast('Suppression impossible'); });
+}
+function mediaCopy(name){
+  var u=mediaUrl(name);
+  if(navigator.clipboard) navigator.clipboard.writeText(u);
+  MEDIA.msg='Lien copié : '+u; render();
+}
+function tMedias(){
+  if(MEDIA.rows===null){ setTimeout(mediaLoad,0); return '<p>Chargement de la base de médias…</p>'; }
+  var folders=MEDIA.rows.filter(function(r){ return !r.id; });
+  var files=MEDIA.rows.filter(function(r){ return r.id; });
+  var h='<p style="color:var(--mu);font-size:.9rem">Toutes les images et vidéos du site sont stockées dans la base en ligne. Téléversez ici puis copiez le lien pour l\'utiliser dans une page, ou utilisez directement les champs « Image » / « Vidéo » des autres onglets.</p>'
+   +'<p style="font-weight:700">Dossier courant : /'+ (MEDIA.prefix||'') +'</p>'
+   +'<div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0">'
+   +(MEDIA.prefix?'<button class="b gh" onclick="mediaUp()">↑ Dossier parent</button>':'')
+   +'<button class="b gh" onclick="mediaNewFolder()">+ Nouveau dossier</button>'
+   +'<button class="b gh" onclick="mediaLoad()">Rafraîchir</button>'
+   +'<button class="b alt" onclick="document.getElementById(\'mup\').click()">Téléverser des fichiers</button>'
+   +'<input id="mup" type="file" multiple accept="image/*,video/mp4,video/*" style="display:none" onchange="mediaUpload(this)"></div>'
+   +(MEDIA.msg?'<p style="font-size:.85rem;color:var(--p)">'+MEDIA.msg+'</p>':'');
+  if(folders.length){
+    h+='<h3 style="margin-top:16px">Dossiers</h3><div class="grid2" style="margin-top:10px">'
+     +folders.map(function(f){ return '<div class="item"><b>📁 '+f.name+'</b><div style="margin-top:8px"><button class="b gh" onclick="mediaOpen(\''+f.name+'\')">Ouvrir</button></div></div>'; }).join('')+'</div>';
+  }
+  h+='<h3 style="margin-top:20px">Fichiers ('+files.length+')</h3>';
+  if(!files.length) h+='<p style="color:var(--mu)">Aucun fichier dans ce dossier.</p>';
+  else h+='<div class="grid2" style="margin-top:10px">'+files.map(function(f){
+    var u=mediaUrl(f.name), isVid=/\.(mp4|mov|webm|m4v)$/i.test(f.name);
+    return '<div class="item">'+(isVid?'<video class="thumb" src="'+u+'" controls preload="metadata"></video>':'<img class="thumb" src="'+u+'" alt="">')
+     +'<p style="font-size:.78rem;word-break:break-all;margin:6px 0 0">'+f.name+'</p>'
+     +'<div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap"><button class="b gh" onclick="mediaCopy(\''+f.name.replace(/'/g,"\\'")+'\')">Copier le lien</button>'
+     +'<button class="b dg" onclick="mediaDelete(\''+f.name.replace(/'/g,"\\'")+'\')">Supprimer</button></div></div>';
+  }).join('')+'</div>';
+  return h;
+}
+
+var TABS=[
+ ['identite','Identité & contact',tIdentite],
+ ['couleurs','Couleurs & polices',tCouleurs],
+ ['pages','Pages & sections',tPages],
+ ['accueil','Page Accueil',tAccueil],
+ ['apropos','Page À propos',tApropos],
+ ['services','Services',tServices],
+ ['realisations','Réalisations',tRealisations],
+ ['galerie','Galerie photos',tGalerie],
+ ['videos','Vidéos',tVideos],
+ ['contact','Page Contact & devis',tContact],
+ ['cta','Bloc d\'appel à l\'action',tCta],
+ ['admins','Administrateurs',tAdmins],
+ ['medias','Médias & dossiers',tMedias],
+ ['securite','Sécurité & données',tSecurite]
+];
+var cur='identite';
+function build(){ document.getElementById('tabs').innerHTML=TABS.map(function(t){return '<button class="'+(t[0]===cur?'on':'')+'" onclick="go(\''+t[0]+'\')">'+t[1]+'</button>';}).join(''); render(); }
+function go(id){ cur=id; build(); window.scrollTo(0,0); }
+function render(){ var t=TABS.filter(function(x){return x[0]===cur;})[0]; document.getElementById('panel').innerHTML='<div class="card"><h2>'+t[1]+'</h2>'+t[2]()+'</div>'; }
+
+function tIdentite(){
+  var h=fld('Nom de l\'entreprise','company.name')
+   +fld('Baseline / slogan principal','company.baseline')
+   +imgFld('Logo','company.logo','Format carré conseillé (PNG transparent).')
+   +'<div class="row"><div>'+fld('E-mail','company.email')+'</div><div>'+fld('Adresse','company.address')+'</div></div>'
+   +'<div class="row"><div>'+fld('Numéro WhatsApp (format international, ex. 22997309633)','company.whatsapp')+'</div><div>'+fld('WhatsApp affiché','company.whatsappDisplay')+'</div></div>'
+   +fld('Lien Google Maps de la localisation','company.mapsUrl','','Collé depuis Google Maps (ex. https://maps.app.goo.gl/…). Un bouton « Voir sur Google Maps » apparaît sur la page Contact et dans le pied de page.')+'<div class="row"><div>'+fld('RCCM','company.rccm')+'</div><div>'+fld('IFU','company.ifu')+'</div></div>'
+   +fld('Gérant (affiché uniquement dans le pied de page / mentions légales)','company.gerant')
+   +'<h3 style="margin-top:22px">Numéros de téléphone</h3>';
+  D.company.phones.forEach(function(p,i){ h+='<div class="item">'+fld('Téléphone '+(i+1),'company.phones.'+i)+listCtl(D.company.phones,i,'company.phones')+'</div>'; });
+  h+='<button class="b" style="margin-top:12px" onclick="addItem(\'company.phones\',\'+229 \')">+ Ajouter un numéro</button>';
+  h+='<h3 style="margin-top:22px">Slogans (pied de page)</h3>';
+  D.company.slogans.forEach(function(s,i){ h+='<div class="item">'+fld('Slogan '+(i+1),'company.slogans.'+i)+listCtl(D.company.slogans,i,'company.slogans')+'</div>'; });
+  h+='<button class="b" style="margin-top:12px" onclick="addItem(\'company.slogans\',\'Nouveau slogan\')">+ Ajouter un slogan</button>';
+  h+='<h3 style="margin-top:22px">Réseaux sociaux</h3>'
+   +fld('Facebook (lien complet)','company.socials.facebook')
+   +fld('TikTok (lien complet)','company.socials.tiktok')
+   +fld('Instagram (lien complet)','company.socials.instagram')
+   +fld('Threads (lien complet)','company.socials.threads');
+  h+='<h3 style="margin-top:22px">Gestion immobilière (pied de page)</h3>'
+   +fld('Texte de présentation','company.immobilierText','area');
+  (D.company.immobilierPoints||[]).forEach(function(p,i){ h+='<div class="item">'+fld('Point '+(i+1),'company.immobilierPoints.'+i,'area')+listCtl(D.company.immobilierPoints,i,'company.immobilierPoints')+'</div>'; });
+  h+='<button class="b" style="margin-top:12px" onclick="addItem(\'company.immobilierPoints\',\'Nouveau point\')">+ Ajouter un point</button>';
+  return h;
+}
+function tCouleurs(){
+  return '<div class="row"><div>'+fld('Couleur principale','theme.primary','color')+'</div><div>'+fld('Couleur d\'accent','theme.accent','color')+'</div></div>'
+   +'<div class="row"><div>'+fld('Fond des bandeaux sombres','theme.steel','color')+'</div><div>'+fld('Fond du site','theme.background','color')+'</div></div>'
+   +'<div class="row"><div>'+fld('Couleur du texte','theme.text','color')+'</div><div>'+fld('Texte secondaire','theme.muted','color')+'</div></div>'
+   +'<div class="row"><div>'+fld('Fond des cartes','theme.card','color')+'</div><div>'+fld('Bordures','theme.border','color')+'</div></div>'
+   +'<div class="row"><div>'+fld('Couleur du bouton WhatsApp','theme.whatsapp','color')+'</div><div>'+fld('Arrondi des angles (px)','theme.radius')+'</div></div>'
+   +'<h3 style="margin-top:22px">Polices du site</h3>'
+   +'<div class="row"><div>'+selFld('Police des titres','theme.fontHeading',FONTS)+'</div><div>'+selFld('Police du texte','theme.fontBody',FONTS)+'</div></div>';
+}
+function tAccueil(){
+  return imgFld('Image de la bannière (hero)','home.heroImage')
+   +fld('Titre principal','home.title','area')
+   +fld('Texte d\'introduction','home.intro','area')
+   +'<div class="row"><div>'+fld('Bouton 1','home.cta1')+'</div><div>'+fld('Bouton 2','home.cta2')+'</div></div>'
+   +'<h3 style="margin-top:22px">Bloc « Notre engagement »</h3>'
+   +fld('Titre','home.engagementTitle')+fld('Phrase d\'accroche','home.engagementLead','area')+fld('Texte','home.engagementText','area')
+   +imgFld('Image du bloc','home.engagementImage')
+   +fld('Titre du bloc services','home.servicesTitle');
+}
+function tApropos(){
+  var a='<div class="row"><div>'+fld('Sur-titre','about.eyebrow')+'</div><div>'+fld('Titre','about.title')+'</div></div>'
+   +fld('Texte de la bannière','about.text','area')
+   +fld('Paragraphe 1','about.p1','area')+fld('Paragraphe 2','about.p2','area')
+   +imgFld('Image','about.image')
+   +fld('Notre mission','about.mission','area')+fld('Notre vision','about.vision','area')
+   +'<h3 style="margin-top:22px">Nos valeurs</h3>';
+  D.values.forEach(function(v,i){ a+='<div class="item">'+fld('Titre','values.'+i+'.title')+fld('Texte','values.'+i+'.text','area')+listCtl(D.values,i,'values')+'</div>'; });
+  return a+'<button class="b" style="margin-top:12px" onclick="addItem(\'values\',{title:\'Nouvelle valeur\',text:\'\'})">+ Ajouter une valeur</button>';
+}
+function tServices(){
+  var h='<div class="row"><div>'+fld('Sur-titre','servicesPage.eyebrow')+'</div><div>'+fld('Titre','servicesPage.title')+'</div></div>'+fld('Texte de la bannière','servicesPage.text','area')+'<h3 style="margin-top:22px">Liste des services</h3>';
+  D.services.forEach(function(s,i){
+    h+='<div class="item">'+fld('Titre','services.'+i+'.title')+fld('Description','services.'+i+'.text','area')
+      +fld('Icône (building, helmet, ruler, check, hammer, brush)','services.'+i+'.icon')+listCtl(D.services,i,'services')+'</div>';
+  });
+  return h+'<button class="b" style="margin-top:12px" onclick="addItem(\'services\',{title:\'Nouveau service\',text:\'\',icon:\'building\'})">+ Ajouter un service</button>';
+}
+function tRealisations(){
+  var h='<div class="row"><div>'+fld('Sur-titre','projectsPage.eyebrow')+'</div><div>'+fld('Titre','projectsPage.title')+'</div></div>'+fld('Texte de la bannière','projectsPage.text','area')+'<h3 style="margin-top:22px">Projets</h3>';
+  D.projects.forEach(function(p,i){
+    h+='<div class="item">'+fld('Nom du projet','projects.'+i+'.nom')+'<div class="row"><div>'+fld('Lieu','projects.'+i+'.lieu')+'</div><div>'+fld('Type','projects.'+i+'.type')+'</div></div>'
+      +fld('Description','projects.'+i+'.description','area')+imgFld('Photo','projects.'+i+'.image')+listCtl(D.projects,i,'projects')+'</div>';
+  });
+  return h+'<button class="b" style="margin-top:12px" onclick="addItem(\'projects\',{nom:\'Nouveau projet\',lieu:\'\',type:\'\',description:\'\',image:\'\'})">+ Ajouter un projet</button>';
+}
+function tGalerie(){
+  var h='<div class="row"><div>'+fld('Sur-titre','galleryPage.eyebrow')+'</div><div>'+fld('Titre','galleryPage.title')+'</div></div>'+fld('Texte de la bannière','galleryPage.text','area')+'<h3 style="margin-top:22px">Photos</h3><div class="grid2">';
+  D.photos.forEach(function(p,i){
+    h+='<div class="item">'+imgFld('Photo '+(i+1),'photos.'+i+'.src')+fld('Titre de la photo','photos.'+i+'.title')+fld('Description','photos.'+i+'.desc','area')+fld('Catégorie','photos.'+i+'.cat')+fld('Texte alternatif (SEO)','photos.'+i+'.alt')+listCtl(D.photos,i,'photos')+'</div>';
+  });
+  return h+'</div><button class="b" style="margin-top:14px" onclick="addItem(\'photos\',{src:\'\',title:\'Nouvelle photo\',desc:\'\',alt:\'Nouvelle photo\',cat:\'Chantiers en cours\'})">+ Ajouter une photo</button>';
+}
+function tVideos(){
+  var h='<p style="color:var(--mu)">Téléversez une vidéo MP4 depuis votre galerie, ou collez un lien YouTube / un lien direct vers un fichier vidéo (.mp4). Pour les vidéos longues ou lourdes, préférez un lien YouTube : les vidéos téléversées sont intégrées au fichier du site et l\'alourdissent.</p>';
+  (D.videos||[]).forEach(function(v,i){ h+='<div class="item">'+fld('Titre','videos.'+i+'.title')+vidFld('Vidéo','videos.'+i+'.url')+listCtl(D.videos,i,'videos')+'</div>'; });
+  return h+'<button class="b" style="margin-top:12px" onclick="addItem(\'videos\',{title:\'Nouvelle vidéo\',url:\'\'})">+ Ajouter une vidéo</button>';
+}
+function tContact(){
+  return '<div class="row"><div>'+fld('Sur-titre','contactPage.eyebrow')+'</div><div>'+fld('Titre','contactPage.title')+'</div></div>'
+   +fld('Texte de la bannière','contactPage.text','area')
+   +'<p style="color:var(--mu);margin-top:16px">Les coordonnées affichées sur cette page se modifient dans l\'onglet « Identité & contact ». Les demandes de devis sont envoyées sur votre WhatsApp.</p>';
+}
+function tCta(){
+  return fld('Titre','cta.title')+fld('Texte','cta.text','area')
+   +'<div class="row"><div>'+fld('Bouton 1','cta.btn1')+'</div><div>'+fld('Bouton 2 (WhatsApp)','cta.btn2')+'</div></div>';
+}
+function tAdmins(){
+  users();
+  var h='<p style="color:var(--mu)">Ajoutez ici les personnes autorisées à se connecter à cet espace. Chaque administrateur se connecte avec son e-mail et son mot de passe, et peut tout modifier.</p>';
+  D.admin.users.forEach(function(u,i){
+    h+='<div class="item">'+fld('Nom','admin.users.'+i+'.name')
+      +'<div class="row"><div>'+fld('E-mail','admin.users.'+i+'.email')+'</div><div>'+fld('Mot de passe','admin.users.'+i+'.password')+'</div></div>'
+      +(D.admin.users.length>1?'<button class="b dg" style="margin-top:10px" onclick="delItem(\'admin.users\','+i+')">Retirer cet administrateur</button>':'<small class="h">Compte principal : il ne peut pas être supprimé.</small>')
+      +'</div>';
+  });
+  h+='<button class="b" style="margin-top:12px" onclick="addItem(\'admin.users\',{name:\'Nouvel administrateur\',email:\'\',password:\'motdepasse\'})">+ Ajouter un administrateur</button>';
+  h+='<p style="color:var(--mu);font-size:.9rem;margin-top:14px">N\'oubliez pas de cliquer sur <b>Enregistrer</b> : le nouvel administrateur pourra alors se connecter avec l\'e-mail et le mot de passe indiqués (à lui communiquer).</p>';
+  return h;
+}
+function tSecurite(){
+  return '<h3>Mon mot de passe</h3><label>Nouveau mot de passe</label><input id="np" type="text" placeholder="Nouveau mot de passe">'
+   +'<button class="b" style="margin-top:12px" onclick="chpw()">Modifier mon mot de passe</button>'
+   +'<h3 style="margin-top:26px">Code de récupération</h3>'
+   +fld('Code demandé en cas de mot de passe oublié','admin.recovery','','Notez-le précieusement : il permet de réinitialiser n\'importe quel mot de passe depuis l\'écran de connexion.')
+   +'<h3 style="margin-top:26px">Vitesse du site</h3>'
+   +'<p style="color:var(--mu);font-size:.9rem">Vos photos et vidéos les plus anciennes sont encore intégrées directement dans le fichier du site (au lieu d\'être hébergées sur Supabase), ce qui le rend lourd et lent à charger, surtout en connexion faible. Le bouton ci-dessous les envoie dans votre stockage Supabase et vous prépare des fichiers <b>index.html</b> et <b>admin.html</b> beaucoup plus légers à remettre en ligne chez votre hébergeur, à la place des fichiers actuels.</p>'
+   +'<button class="b" style="margin-top:10px" onclick="optimizeSite()">🚀 Optimiser le site (déplacer les images vers le cloud)</button>'
+   +'<p id="optProg" style="color:var(--mu);font-size:.85rem;margin-top:8px"></p>'
+   +'<h3 style="margin-top:26px">Données</h3>'
+   +'<p style="color:var(--mu);font-size:.9rem">Vos contenus sont désormais enregistrés dans votre base Supabase dès que vous cliquez « Enregistrer » : le site public se met à jour automatiquement, sans export manuel. Une copie reste aussi dans ce navigateur au cas où vous seriez hors-ligne. Faites tout de même une sauvegarde .json de temps en temps par sécurité.</p>'
+   +'<button class="b dg" style="margin-top:12px" onclick="resetAll()">Réinitialiser tout le contenu</button>';
+}
+function chpw(){ var v=document.getElementById('np').value.trim(); if(v.length<4) return alert('4 caractères minimum.'); var u=findUser(CURRENT&&CURRENT.email)||users()[0]; u.password=v; localStorage.removeItem(PWKEY); save(); toast('Mot de passe modifié OK'); }
+function resetAll(){ if(!confirm('Tout réinitialiser au contenu d\'origine ?')) return; localStorage.removeItem(KEY); D=load(); render(); toast('Contenu réinitialisé'); }
+function exportJson(){ dl(new Blob([JSON.stringify(D,null,2)],{type:'application/json'}),'amfbtp-contenu.json'); }
+function importJson(inp){ var f=inp.files[0]; if(!f) return; var r=new FileReader(); r.onload=function(){ try{ D=merge(JSON.parse(JSON.stringify(DEFAULTS)),JSON.parse(r.result)); save(); render(); toast('Sauvegarde restaurée OK'); }catch(e){ alert('Fichier invalide'); } }; r.readAsText(f); }
+function dataUrlToBlob(du){
+  var parts=du.split(','), mime=parts[0].match(/:(.*?);/)[1], bin=atob(parts[1]), arr=new Uint8Array(bin.length);
+  for(var i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i);
+  return new Blob([arr],{type:mime});
+}
+function optimizeSite(){
+  if(!confirm('Envoyer toutes les images/vidéos encore intégrées dans le fichier vers votre stockage Supabase, puis préparer des fichiers plus légers à télécharger ?')) return;
+  var prog=document.getElementById('optProg');
+  var jobs=[];
+  (D.photos||[]).forEach(function(p,i){ if(p.src && p.src.indexOf('data:')===0) jobs.push({obj:p,key:'src',label:'Photo '+(i+1)}); });
+  (D.videos||[]).forEach(function(v,i){ if(v.url && v.url.indexOf('data:')===0) jobs.push({obj:v,key:'url',label:'Vidéo '+(i+1)}); });
+  if(D.company && D.company.logo && D.company.logo.indexOf('data:')===0) jobs.push({obj:D.company,key:'logo',label:'Logo'});
+  if(!jobs.length){ prog.textContent='Rien à optimiser : toutes vos images sont déjà sur le cloud.'; return; }
+  var done=0;
+  function next(){
+    if(done>=jobs.length){
+      prog.textContent='Terminé : '+jobs.length+' fichier(s) déplacé(s) vers le cloud. Sauvegarde en cours…';
+      save();
+      exportSite();
+      exportAdminSite();
+      prog.textContent='Terminé ✅ — Téléchargez les 2 nouveaux fichiers (index.html + admin.html) et remplacez-les chez votre hébergeur.';
+      return;
+    }
+    var job=jobs[done];
+    prog.textContent='Optimisation… '+(done+1)+'/'+jobs.length+' ('+job.label+')';
+    var blob=dataUrlToBlob(job.obj[job.key]);
+    blob.name=(job.key==='url'?'video.mp4':'image.jpg');
+    uploadToCloud(blob,function(publicUrl){ job.obj[job.key]=publicUrl; done++; next(); },function(){ prog.textContent='Échec réseau sur « '+job.label+' » — vérifiez votre connexion et réessayez.'; });
+  }
+  next();
+}
+function exportSite(){
+  fetch('index.html').then(function(r){ if(!r.ok) throw 0; return r.text(); }).then(function(html){
+    var out=html.replace(/(<script id="site-data" type="application\/json">)[\s\S]*?(<\/script>)/, function(m,a,b){ return a+JSON.stringify(D)+b; });
+    dl(new Blob([out],{type:'text/html'}),'index.html');
+    toast('index.html exporté avec vos contenus OK');
+  }).catch(function(){ alert("L'export du site nécessite d'ouvrir admin.html depuis un serveur web (ou depuis votre hébergement), pas en double-clic local. Utilisez la sauvegarde .json en attendant."); });
+}
+function exportAdminSite(){
+  fetch('admin.html').then(function(r){ if(!r.ok) throw 0; return r.text(); }).then(function(html){
+    var out=html.replace(/(<script id="site-data" type="application\/json">)[\s\S]*?(<\/script>)/, function(m,a,b){ return a+JSON.stringify(D)+b; });
+    dl(new Blob([out],{type:'text/html'}),'admin.html');
+    toast('admin.html exporté avec vos contenus OK');
+  }).catch(function(){});
+}
+function dl(blob,name){ var u=URL.createObjectURL(blob),a=document.createElement('a'); a.href=u; a.download=name; a.click(); setTimeout(function(){URL.revokeObjectURL(u);},1500); }
+cloudBadge('☁️ Connexion…');
+fetchCloud();
+</script>
+</body>
+</html>
